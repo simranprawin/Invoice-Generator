@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Professional Billing</p>
+        <h1>Invoice Generator</h1>
+        <p>Create, calculate, and print beautiful invoices.</p>
+      </div>
+
+      <button class="print-btn" id="printInvoice">
+        🖨 Print / Save PDF
+      </button>
+    </header>
+
+    <section class="invoice-card" id="invoice">
+      <div class="invoice-top">
+        <div class="business-section">
+          <div class="logo">IG</div>
+
+          <div>
+            <input
+              type="text"
+              id="businessName"
+              class="business-name"
+              placeholder="Your Business Name"
+              value="Your Business Name"
+            />
+
+            <textarea
+              id="businessDetails"
+              placeholder="Business address, email, phone"
+            >123 Business Street
+hello@example.com
++1 234 567 890</textarea>
+          </div>
+        </div>
+
+        <div class="invoice-info">
+          <h2>INVOICE</h2>
+
+          <label>
+            Invoice Number
+            <input type="text" id="invoiceNumber" value="INV-001" />
+          </label>
+
+          <label>
+            Invoice Date
+            <input type="date" id="invoiceDate" />
+          </label>
+
+          <label>
+            Due Date
+            <input type="date" id="dueDate" />
+          </label>
+        </div>
+      </div>
+
+      <div class="customer-section">
+        <div class="form-group">
+          <label for="customerName">Bill To</label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Customer name"
+            value="Customer Name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="customerDetails">Customer Details</label>
+          <textarea
+            id="customerDetails"
+            placeholder="Customer address, email, phone"
+          >Customer address
+customer@example.com
++1 234 567 890</textarea>
+        </div>
+      </div>
+
+      <div class="items-section">
+        <div class="section-heading">
+          <h3>Invoice Items</h3>
+          <button class="add-btn" id="addItem">+ Add Item</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody id="itemsList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bottom-section">
+        <div class="notes-section">
+          <label for="notes">Notes</label>
+          <textarea
+            id="notes"
+            placeholder="Add payment instructions or a thank-you note"
+          >Thank you for your business!</textarea>
+        </div>
+
+        <div class="summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">$0.00</strong>
+          </div>
+
+          <div class="summary-row input-row">
+            <label for="tax">Tax (%)</label>
+            <input type="number" id="tax" value="10" min="0" step="0.01" />
+          </div>
+
+          <div class="summary-row">
+            <span>Tax Amount</span>
+            <strong id="taxAmount">$0.00</strong>
+          </div>
+
+          <div class="summary-row input-row">
+            <label for="discount">Discount (%)</label>
+            <input
+              type="number"
+              id="discount"
+              value="0"
+              min="0"
+              max="100"
+              step="0.01"
+            />
+          </div>
+
+          <div class="summary-row">
+            <span>Discount Amount</span>
+            <strong id="discountAmount">$0.00</strong>
+          </div>
+
+          <div class="summary-row total-row">
+            <span>Final Total</span>
+            <strong id="finalTotal">$0.00</strong>
+          </div>
+        </div>
+      </div>
+
+      <footer class="invoice-footer">
+        <p>Generated with Invoice Generator</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
